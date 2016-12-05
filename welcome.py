@@ -42,7 +42,7 @@ out = "<html><table border=\"1\"><tr><td>Table Name</td><td>Table Schema</td>"
 
 data = ibm_db.fetch_tuple(statement)
 while (data):
-#   out = out + "<tr><td>"+data[1]+"</td><td>"+data[3]+"</td></tr>"
+    out = out + "<tr><td>"+data[1]+"</td><td>"+data[3]+"</td></tr>"
     print " %s  %d  %s  %d" %(data[1],data[2],data[3],data[4])
     data = ibm_db.fetch_tuple(statement)
 #    print "data:[0]"'+ data[0]
@@ -51,8 +51,10 @@ while (data):
 
 ibm_db.free_stmt(statement)
 ibm_db.close(connection)
-#out = out + "</table></html>"
-#return out
+out = out + "</table></html>"
+@app.route('/')
+def hello_world():
+    return out
 
 @app.route('/myapp')
 def WelcomeToMyapp():
@@ -74,11 +76,6 @@ def SayHello(name):
     return jsonify(results=message)
 
 port = os.getenv('PORT', '5000')
-
-@app.route('/')
-def hello_world():
-    return 'Hello World! I am running on port ' + str(port)
-
 if __name__ == "__main__":
 	app.run(host='0.0.0.0', port=int(port))
 	
