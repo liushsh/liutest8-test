@@ -36,17 +36,17 @@ statement = ibm_db.prepare(connection, 'SELECT * from DASH111327.DOGS FETCH FIRS
 print 'SUCCESS1!!'
 
 ibm_db.execute(statement)
-print 'SUCCESS2!!'
-
-#out = "<html><table border=\"1\"><tr><td>Table Name</td><td>Table Schema</td>" 
-print 'SUCCESS3!!'
+#print 'SUCCESS2!!'
+out = "<html><table border=\"1\"><tr><td>Table Name</td><td>Table Schema</td>" 
+#print 'SUCCESS3!!'
 
 data = ibm_db.fetch_tuple(statement)
 while (data):
- #  out = out + "<tr><td>"+data[0]+"</td><td>"+data[1]+"</td></tr>"
-#    print "data:[0]"'+ data[0]
-    print "data:%s" %data[0]
+    out = out + "<tr><td>"+data[0]+"</td><td>"+data[1]+"</td></tr>"
     data = ibm_db.fetch_tuple(statement)
+#    print "data:[0]"'+ data[0]
+#    print "data:%s" %data[0]
+    
 
 ibm_db.free_stmt(statement)
 ibm_db.close(connection)
