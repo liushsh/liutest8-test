@@ -50,8 +50,8 @@ while (data):
 
 ibm_db.free_stmt(statement)
 ibm_db.close(connection)
-# out = out + "</table></html>"
-# return out
+out = out + "</table></html>"
+return out
 
 @app.route('/myapp')
 def WelcomeToMyapp():
