@@ -37,12 +37,12 @@ print 'SUCCESS1!!'
 
 ibm_db.execute(statement)
 #print 'SUCCESS2!!'
-out = "<html><table border=\"1\"><tr><td>Table Name</td><td>Table Schema</td>" 
+out = "<html><table border=\"1\"><tr><td>Name</td><td>Age</td><td>DogType</td><td>Cost</td>" 
 #print 'SUCCESS3!!'
 
 data = ibm_db.fetch_tuple(statement)
 while (data):
-    out = out + "<tr><td>"+data[1]+"</td><td>"+data[3]+"</td></tr>"
+    out = out + "<tr><td>"+data[1]+"</td><td>"+str(data[2])+"</td><td>"+data[3]+"</td><td>"+str(data[4])+"</td></tr>"
     print " %s  %d  %s  %d" %(data[1],data[2],data[3],data[4])
     data = ibm_db.fetch_tuple(statement)
 #    print "data:[0]"'+ data[0]
