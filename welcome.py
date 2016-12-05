@@ -45,6 +45,7 @@ data = ibm_db.fetch_tuple(statement)
 while (data):
  #  out = out + "<tr><td>"+data[0]+"</td><td>"+data[1]+"</td></tr>"
 #    print "data:[0]"'+ data[0]
+     print "data:%s"%data[0]
     data = ibm_db.fetch_tuple(statement)
 
 ibm_db.free_stmt(statement)
