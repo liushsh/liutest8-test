@@ -20,9 +20,9 @@ import logging
 
 app = Flask(__name__)
 
-@app.route('/')
-def Welcome():
-    return app.send_static_file('index.html')
+#@app.route('/')
+#def Welcome():
+#    return app.send_static_file('index.html')
 
 # Parse VCAP_SERVICES Variable 
 vcap_services = json.loads(os.environ['VCAP_SERVICES'])
@@ -74,5 +74,12 @@ def SayHello(name):
     return jsonify(results=message)
 
 port = os.getenv('PORT', '5000')
+
+@app.route('/')
+def hello_world():
+    return 'Hello World! I am running on port ' + str(port)
+
 if __name__ == "__main__":
 	app.run(host='0.0.0.0', port=int(port))
+	
+
