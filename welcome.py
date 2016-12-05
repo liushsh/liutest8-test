@@ -42,7 +42,7 @@ out = "<html><table border=\"1\"><tr><td>Table Name</td><td>Table Schema</td>"
 
 data = ibm_db.fetch_tuple(statement)
 while (data):
-    out = out + "<tr><td>"+data[0]+"</td><td>"+data[1]+"</td></tr>"
+    out = out + "<tr><td>"+data[1]+"</td><td>"+data[3]+"</td></tr>"
     data = ibm_db.fetch_tuple(statement)
 #    print "data:[0]"'+ data[0]
 #    print "data:%s" %data[0]
